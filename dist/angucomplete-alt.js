@@ -83,7 +83,7 @@ angular.module('angucomplete-alt').directive('angucompleteAlt', ['$q', '$parse',
       document.body.removeEventListener('click', clickoutHandlerForDropdown);
     };
 
-    $scope.supportedAutocompleteValue = BROWSER_IS_CHROME ? 'nope' : 'off';
+    $scope.supportedAutocompleteValue = BROWSER_IS_CHROME ? (new Date().getTime()) : 'off';
 
     $scope.mousedownHandler = function (event) {
       var target = getCorrectTarget(event.target);
