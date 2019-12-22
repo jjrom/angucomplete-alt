@@ -602,6 +602,9 @@ angular.module('angucomplete-alt').directive('angucompleteAlt', ['$q', '$parse',
       if ($scope.currentIndex + 1 < $scope.results.length && $scope.showDropdown) {
         $scope.currentIndex += 1;
         updateInputField();
+        if ($scope.hoverObject) {
+          $scope.hoverObject($scope.results[$scope.currentIndex]);
+        }
 
         waitUntilNextDigestCycle(function () {
           if (config.isScrollOn) {
@@ -622,6 +625,10 @@ angular.module('angucomplete-alt').directive('angucompleteAlt', ['$q', '$parse',
 
         updateInputField();
 
+        if ($scope.hoverObject) {
+          $scope.hoverObject($scope.results[$scope.currentIndex]);
+        }
+        
         waitUntilNextDigestCycle(function () {
           if (config.isScrollOn) {
             var rowTop = dropdownRowTop();
@@ -771,6 +778,9 @@ angular.module('angucomplete-alt').directive('angucompleteAlt', ['$q', '$parse',
 
     $scope.hoverRow = function (index) {
       $scope.currentIndex = index;
+      if ($scope.hoverObject) {
+        $scope.hoverObject($scope.results[$scope.currentIndex]);
+      }
     };
 
     $scope.selectResult = function (result) {
@@ -871,6 +881,7 @@ angular.module('angucomplete-alt').directive('angucompleteAlt', ['$q', '$parse',
     scope: {
       selectedObject: '=',
       selectedObjectData: '=',
+      hoverObject: '=',
       disableInput: '=',
       initialValue: '=',
       localData: '=',
