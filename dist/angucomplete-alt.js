@@ -853,7 +853,7 @@ angular.module('angucomplete-alt').directive('angucompleteAlt', ['$q', '$http', 
       }
     }
 
-    $scope.inputType = attributes.type ? attributes.type : 'text';
+    $scope.inputType = attributes.type ? attributes.type : 'search';
 
     // set strings for "Searching..." and "No results"
     $scope.textSearching = attributes.textSearching ? attributes.textSearching : TEXT_SEARCHING;
