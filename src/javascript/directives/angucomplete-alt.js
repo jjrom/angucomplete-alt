@@ -1,5 +1,5 @@
-angular.module('angucomplete-alt').directive('angucompleteAlt', ['$q', '$parse', '$http', '$sce', '$timeout', '$interpolate', '$log',
-  function ($q, $parse, $http, $sce, $timeout, $interpolate, $log) {
+angular.module('angucomplete-alt').directive('angucompleteAlt', ['$q', '$http', '$sce', '$timeout', '$interpolate', '$log',
+  function ($q, $http, $sce, $timeout, $interpolate, $log) {
     // keyboard events
     const KEY_DOWN   = 40;
     const KEY_RIGHT  = 39;
@@ -19,7 +19,6 @@ angular.module('angucomplete-alt').directive('angucompleteAlt', ['$q', '$parse',
     const TEXT_SEARCHING = 'Searching...';
     const TEXT_NORESULTS = 'No results found';
     const DEFAULT_TEMPLATE_URL = 'angucomplete-alt-template.html';
-    const BROWSER_IS_CHROME = navigator.userAgent.includes('Chrome');
 
     let link = ($scope, element, attributes, formController) => {
       let subElements = {
@@ -78,8 +77,10 @@ angular.module('angucomplete-alt').directive('angucompleteAlt', ['$q', '$parse',
         document.body.removeEventListener('click', clickoutHandlerForDropdown);
       };
 
+      /* New chrome no needs of 'nope
       $scope.supportedAutocompleteValue = BROWSER_IS_CHROME ? 'nope' : 'off';
-
+      */
+     
       $scope.mousedownHandler = (event) => {
         let target = getCorrectTarget(event.target);
         if (target.id) {

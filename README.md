@@ -196,3 +196,7 @@ function ($item) {
 
 }
 ```
+
+### FAQ (jjrom)
+
+Why npm-shrinkwrap.json ? See explanation here : https://timonweb.com/javascript/how-to-fix-referenceerror-primordials-is-not-defined-error/
